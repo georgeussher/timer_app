@@ -11,15 +11,15 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	};
 
     //adds item to items array and clears input field
-	const handleClick = () => {
-		setItems([...items, itemName]);
-		setItemName('');
-	};
+    const handleClick = () => {
+ // Check if itemName is not empty or only whitespace
+            setItems([...items, itemName]);
+            setItemName('');
+    }
 
-    //returns true if input field is empty and false if not
-	const isTextEmpty = (text) => {
-		return text.trim() === '';
-	};
+    //returns true if input field is empty or only whitespace else false
+    let isEmpty = itemName.trim() === '';
+
 
 	return (
 		<>
@@ -27,7 +27,7 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 				<input type='text' onChange={handleInputChange} />
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
-				<button onClick={handleClick} disabled={isTextEmpty}>
+				<button onClick={handleClick} disabled={isEmpty}>
 					Add
 				</button>
 			</Link>

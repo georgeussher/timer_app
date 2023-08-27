@@ -5,21 +5,20 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
 
-    //updates itemName state when input field is changed
+	//updates itemName state when input field is changed
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
 	};
 
-    //adds item to items array and clears input field
-    const handleClick = () => {
- // Check if itemName is not empty or only whitespace
-            setItems([...items, itemName]);
-            setItemName('');
-    }
+	//adds item to items array and clears input field
+	const handleClick = () => {
+		// Check if itemName is not empty or only whitespace
+		setItems([...items, itemName]);
+		setItemName('');
+	};
 
-    //returns true if input field is empty or only whitespace else false
-    let isEmpty = itemName.trim() === '';
-
+	//returns true if input field is empty or only whitespace else false
+	let isEmpty = itemName.trim() === '';
 
 	return (
 		<>

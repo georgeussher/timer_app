@@ -11,14 +11,33 @@ function App() {
 	//passes down setItemName and setCountdown to AddItem component✅
 	//renders Item and countdown
 	let [itemName, setItemName] = useState('');
+    let [items, setItems] = useState([])
 	return (
 		// <div>
 		//     <AddItem setItemName={setItemName} />
 		//     <Item itemName={itemName} />
 		// </div>
 		<Routes>
-			<Route path='/' element={<Homepage setItemName={setItemName} />} />
-			<Route path='/addItem' element={<AddItem setItemName={setItemName} />} />
+			<Route
+				path='/'
+				element={
+					<Homepage
+						// setItemName={setItemName}
+						itemName={itemName}
+                        items={items}
+					/>
+				}
+			/>
+			<Route path='/addItem'
+                element={
+                <AddItem 
+                    setItemName={setItemName}
+                    items={items}
+                    setItems={setItems}
+                    itemName={itemName}
+                    />
+                }
+            />
 		</Routes>
 	);
 }

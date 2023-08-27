@@ -11,8 +11,9 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 
     const handleClick = () => {
         setItems([...items, itemName])
-        console.log('items', items)
+        console.log('items after Add clicked', items)
     }
+
 
 	return (
 		<>

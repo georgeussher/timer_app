@@ -10,10 +10,13 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	};
 
     const handleClick = () => {
-        setItems([...items, itemName])
-        console.log('items after Add clicked', items)
+            setItems([...items, itemName]);
+            setItemName('');
     }
 
+    const isTextEmpty = (text) => {
+        return text.trim() === '';
+    }
 
 	return (
 		<>
@@ -21,7 +24,7 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 				<input type='text' onChange={handleInputChange} />
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
-				<button onClick={handleClick}>Add</button>
+				<button onClick={handleClick} disabled={isTextEmpty}>Add</button>
 			</Link>
 		</>
 	);

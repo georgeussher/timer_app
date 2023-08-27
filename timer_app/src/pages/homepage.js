@@ -3,15 +3,12 @@ import Item from '../components/Item';
 
 //checks if the items array has updated
 export default function Homepage({ itemName, items }) {
-	function handleClick() {
-		console.log('items after + clicked', items);
-	}
-	//map through the items array and pass each item into the Item component as a prop and render it as a list in homepage
+
 
 	return (
 		<>
 			<Link to='/additem' aria-label='Switch to add item page'>
-				<button onClick={handleClick}>+</button>
+				<button>+</button>
 			</Link>
 			<ul>
       {/* array of items is mapped into Item component and rendered */}

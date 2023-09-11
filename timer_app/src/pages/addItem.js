@@ -20,10 +20,60 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';
 
+	//object to store button titles and values to be mapped through and rendered
+	const buttons = [
+		{
+			title: "1",
+			value: 1
+		},
+		{
+			title: "2",
+			value: 2
+		},
+		{
+			title: "3",
+			value: 3
+		},
+		{
+			title: "4",
+			value: 4
+		},
+		{
+			title: "5",
+			value: 5
+		},
+		{
+			title: "6",
+			value: 6
+		},
+		{
+			title: "7",
+			value: 7
+		},
+		{
+			title: "8",
+			value: 8
+		},
+		{
+			title: "9",
+			value: 9
+		},
+		{
+			title: "0",
+			value: 0
+		},
+	]
+
+
 	return (
 		<>
 			<div>
 				<input type='text' onChange={handleInputChange} />
+				{buttons.map(({title}) => {
+					return (
+						<button key={title}>{title}</button>
+					)
+				})}
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
 				<button onClick={handleClick} disabled={isEmpty}>
@@ -33,3 +83,5 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 		</>
 	);
 }
+// add logic to react to the button clicks
+// save button click values to state

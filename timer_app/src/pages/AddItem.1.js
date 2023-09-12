@@ -5,7 +5,6 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	//props: setItemName, setCoundown
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
-
 	//updates itemName state when input field is changed
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
@@ -64,22 +63,26 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	// 		value: 0
 	// 	},
 	// ]
-
 	return (
 		<>
 			<div>
-				{/* <input type='text' onChange={handleInputChange} /> */}
+				<input type='text' onChange={handleInputChange} />
 				{/* {buttons.map(({title}) => {
-					return (
-						<button key={title}>{title}</button>
-					)
-				})} */}
+                return (
+                    <button key={title}>{title}</button>
+                )
+            })} */}
 				<NumPad.DateTime
 					onChange={(value) => {
 						console.log('value', value);
+						//let value = value
 					}}
-					dateFormat='HH:mm'
-					label={'Input for time'}
+					dateFormat='HH:mm:ss'
+					label={'Enter time'}
+					placeholder={'HH:mm:ss'}
+					sync={true}
+					
+					
 				/>
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
@@ -90,5 +93,3 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 		</>
 	);
 }
-// add logic to react to the button clicks
-// save button click values to state

@@ -2,35 +2,30 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/homepage';
-import AddItem from './pages/addItem';
+import AddItem from './pages/AddItem.1';
 
 function App() {
-    //STATE:
+	//STATE:
 	let [itemName, setItemName] = useState('');
-    let [items, setItems] = useState([])
+	let [items, setItems] = useState([]);
 
 	return (
-
 		<Routes>
 			<Route
 				path='/'
+				element={<Homepage itemName={itemName} items={items} />}
+			/>
+			<Route
+				path='/addItem'
 				element={
-					<Homepage
+					<AddItem
+						setItemName={setItemName}
+						items={items}
+						setItems={setItems}
 						itemName={itemName}
-                        items={items}
 					/>
 				}
 			/>
-			<Route path='/addItem'
-                element={
-                <AddItem 
-                    setItemName={setItemName}
-                    items={items}
-                    setItems={setItems}
-                    itemName={itemName}
-                    />
-                }
-            />
 		</Routes>
 	);
 }

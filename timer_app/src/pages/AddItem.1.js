@@ -17,6 +17,15 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 		setItemName('');
 	};
 
+	//create handleclick function:
+	//change state for appropriate countdown value to current value
+	//render value in JSX
+	//ISSUE: value is not being defined/used correctly- investigate
+	const handleButtonClick = (value) => {
+			setHours(value)//doesn't work
+			console.log('value', value)
+	}
+
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';
 
@@ -63,17 +72,14 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 			value: 0
 		},
 	]
-	//create handleclick function:
-	//change state for appropriate countdown value to current value
-	//render value in JSX
-
+	
 	return (
 		<>
 			<div>
 				<input type='text' onChange={handleInputChange} />
 				{buttons.map(({title}) => {
                 return (
-                    <button key={title}>{title}</button>
+                    <button key={title} onClick={handleButtonClick}>{title}</button>
                 )
             })}
 				

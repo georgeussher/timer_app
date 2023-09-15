@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import NumPad from 'react-numpad';
+
 
 export default function AddItem({ setItemName, items, setItems, itemName }) {
 	//props: setItemName, setCoundown
@@ -21,69 +21,58 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	let isEmpty = itemName.trim() === '';
 
 	//object to store button titles and values to be mapped through and rendered
-	// const buttons = [
-	// 	{
-	// 		title: "1",
-	// 		value: 1
-	// 	},
-	// 	{
-	// 		title: "2",
-	// 		value: 2
-	// 	},
-	// 	{
-	// 		title: "3",
-	// 		value: 3
-	// 	},
-	// 	{
-	// 		title: "4",
-	// 		value: 4
-	// 	},
-	// 	{
-	// 		title: "5",
-	// 		value: 5
-	// 	},
-	// 	{
-	// 		title: "6",
-	// 		value: 6
-	// 	},
-	// 	{
-	// 		title: "7",
-	// 		value: 7
-	// 	},
-	// 	{
-	// 		title: "8",
-	// 		value: 8
-	// 	},
-	// 	{
-	// 		title: "9",
-	// 		value: 9
-	// 	},
-	// 	{
-	// 		title: "0",
-	// 		value: 0
-	// 	},
-	// ]
+	const buttons = [
+		{
+			title: "1",
+			value: 1
+		},
+		{
+			title: "2",
+			value: 2
+		},
+		{
+			title: "3",
+			value: 3
+		},
+		{
+			title: "4",
+			value: 4
+		},
+		{
+			title: "5",
+			value: 5
+		},
+		{
+			title: "6",
+			value: 6
+		},
+		{
+			title: "7",
+			value: 7
+		},
+		{
+			title: "8",
+			value: 8
+		},
+		{
+			title: "9",
+			value: 9
+		},
+		{
+			title: "0",
+			value: 0
+		},
+	]
 	return (
 		<>
 			<div>
 				<input type='text' onChange={handleInputChange} />
-				{/* {buttons.map(({title}) => {
+				{buttons.map(({title}) => {
                 return (
                     <button key={title}>{title}</button>
                 )
-            })} */}
-				<NumPad.DateTime
-					onChange={(value) => {
-						console.log('value', value);
-						//let value = value
-					}}
-					dateFormat='HH:mm:ss'
-					label={'Enter time'}
-					placeholder={'HH:mm:ss'}
-					sync={true}
-					
-					
-				/>
+            })}
+				
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
 				<button onClick={handleClick} disabled={isEmpty}>

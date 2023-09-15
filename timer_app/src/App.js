@@ -8,6 +8,10 @@ function App() {
 	//STATE:
 	let [itemName, setItemName] = useState('');
 	let [items, setItems] = useState([]);
+	//Countdown state:
+	let [hours, setHours] = useState(0);
+	let [minutes, setMinutes] = useState(0);
+	let [seconds, setSeconds] = useState(0);
 
 	return (
 		<Routes>
@@ -19,10 +23,16 @@ function App() {
 				path='/addItem'
 				element={
 					<AddItem
-						setItemName={setItemName}
 						items={items}
 						setItems={setItems}
 						itemName={itemName}
+						setItemName={setItemName}
+						hours={hours}
+						SetHours={setHours}
+						minute={minutes}
+						setMinutes={setMinutes}
+						seconds={seconds}
+						setSeconds={setSeconds}
 					/>
 				}
 			/>

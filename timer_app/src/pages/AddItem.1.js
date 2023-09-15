@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 
-export default function AddItem({ setItemName, items, setItems, itemName }) {
+export default function AddItem({ items, setItems, itemName, setItemName, hours, setHours, minutes, setMinutes, seconds, setSeconds }) {
 	//props: setItemName, setCoundown
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
@@ -20,7 +20,7 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';
 
-	//object to store button titles and values to be mapped through and rendered
+	//array to store button titles and values to be mapped through and rendered
 	const buttons = [
 		{
 			title: "1",
@@ -63,6 +63,10 @@ export default function AddItem({ setItemName, items, setItems, itemName }) {
 			value: 0
 		},
 	]
+	//create handleclick function:
+	//change state for appropriate countdown value to current value
+	//render value in JSX
+
 	return (
 		<>
 			<div>

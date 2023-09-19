@@ -49,10 +49,10 @@ export default function Root() {
 }
 //next steps: set up react router so when add button is clicked user navigates to add-item page✅
 //add 'Add' button that navigates back to home and renders Item component as a list✅
-//add timer functionality to Item component
+//add timer functionality to Item component (in progress)
 //render countdown timer in homepage according to parameters set in Item (state?)
 //order list according to timer length (shortest at the top)
-//render totat time at top of homepage
+//render total time at top of homepage
 //when timer ends make sound
-//be able to delete items from list
+//full CRUD functionality
 //stop timer when item is deleted

@@ -5,6 +5,7 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	//props: setItemName, setCoundown
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
+	
 	//updates itemName state when input field is changed
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);

@@ -14,6 +14,12 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
 	};
+	
+	//NEXT STEPS: 
+		// track number of number of numberpad button clicks
+		//create if statement that checks how many times the buttons have been clicked
+		//and sets true false value accordingly so that one of two different buttonCLick
+		//functions are called depending on the value of the boolean.
 
 	//adds item to items array and clears input field
 	const handleClick = () => {

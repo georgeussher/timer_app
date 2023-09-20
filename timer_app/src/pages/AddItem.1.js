@@ -20,6 +20,8 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 		//create if statement that checks how many times the buttons have been clicked
 		//and sets true false value accordingly so that one of two different buttonCLick
 		//functions are called depending on the value of the boolean.
+		//can I create only one funtion for each boolean value that handles hours, minutes
+		//and seconds? Or do I need to create a function for each?
 
 	//adds item to items array and clears input field
 	const handleClick = () => {

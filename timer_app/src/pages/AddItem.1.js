@@ -16,7 +16,7 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	};
 	
 	//NEXT STEPS: 
-		// track number of number of numberpad button clicks
+		//track number of number of numberpad button clicks
 		//create if statement that checks how many times the buttons have been clicked
 		//and sets true false value accordingly so that one of two different buttonCLick
 		//functions are called depending on the value of the boolean.

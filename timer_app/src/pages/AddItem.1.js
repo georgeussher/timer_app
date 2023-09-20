@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 
 export default function AddItem({ items, setItems, itemName, setItemName, hours, setHours, minutes, setMinutes, seconds, setSeconds }) {
 	//props: setItemName, setCoundown
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
+
+	//State for hour values, stored in an array:
+	let [hourValuesArray, setHourValuesArray] = useState([]);
 
 	//updates itemName state when input field is changed
 	const handleInputChange = (event) => {
@@ -18,14 +22,19 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 		setItemName('');
 	};
 
-	//create handleclick function:
-	//change state for appropriate countdown value to current value
-	//render value in JSX
+	//logic for when number button is clicked
 	const handleButtonClick = (event,value) => {
-			event.preventDefault();
+			event.preventDefault(); //prevents default button behaviour
+			setHourValuesArray([...hourValuesArray, value]); //value is added othe hourValuesArray onClick
 			setHours(value);
 			console.log('Hours', value);
 	}
+
+	//console logs the hourValuesArray when it is updated to aid debugging and build
+	useEffect(() => {
+    console.log('hourValuesArray', hourValuesArray);
+    // You can perform further actions or logic with hourValuesArray here
+  }, [hourValuesArray]);
 
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';

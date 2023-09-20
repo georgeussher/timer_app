@@ -24,7 +24,7 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	const handleButtonClick = (event,value) => {
 			event.preventDefault();
 			setHours(value);
-			console.log('value', value);
+			console.log('Hours', value);
 	}
 
 	//returns true if input field is empty or only whitespace else false

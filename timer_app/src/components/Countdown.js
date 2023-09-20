@@ -2,10 +2,10 @@
 
 //PLAN: save time as state variable to be changed in the add-item component
 
-export default function Countdown(){
+export default function Countdown({hours}){
     return (
         <div>
-            <h2>00:00:00</h2>
+            <h2>{hours}</h2>
         </div>
     )
 };

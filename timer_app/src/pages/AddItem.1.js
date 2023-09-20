@@ -5,7 +5,7 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	//props: setItemName, setCoundown
 	//contains input field for item name whose value is passsed into setItemName
 	//contains timer wheel whose value is assigned to setCountdown
-	
+
 	//updates itemName state when input field is changed
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
@@ -21,10 +21,10 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 	//create handleclick function:
 	//change state for appropriate countdown value to current value
 	//render value in JSX
-	//ISSUE: value is not being defined/used correctly- investigate
-	const handleButtonClick = (value) => {
-			setHours(value)//doesn't work
-			console.log('value', value)
+	const handleButtonClick = (event,value) => {
+			event.preventDefault();
+			setHours(value);
+			console.log('value', value);
 	}
 
 	//returns true if input field is empty or only whitespace else false
@@ -78,12 +78,12 @@ export default function AddItem({ items, setItems, itemName, setItemName, hours,
 		<>
 			<div>
 				<input type='text' onChange={handleInputChange} />
-				{buttons.map(({title}) => {
+				{buttons.map(({title, value: buttonValue}) => {
                 return (
-                    <button key={title} onClick={handleButtonClick}>{title}</button>
+                    <button key={title} onClick={(event) => handleButtonClick(event, buttonValue)}>{title}</button>
                 )
             })}
-				
+			<h2>{hours}</h2>	
 			</div>
 			<Link to='/' aria-label='add item and switch to homepage'>
 				<button onClick={handleClick} disabled={isEmpty}>

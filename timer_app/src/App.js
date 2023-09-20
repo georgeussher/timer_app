@@ -17,7 +17,7 @@ function App() {
 		<Routes>
 			<Route
 				path='/'
-				element={<Homepage itemName={itemName} items={items} />}
+				element={<Homepage itemName={itemName} items={items} hours={hours} />}
 			/>
 			<Route
 				path='/addItem'
@@ -28,7 +28,7 @@ function App() {
 						itemName={itemName}
 						setItemName={setItemName}
 						hours={hours}
-						SetHours={setHours}
+						setHours={setHours}
 						minute={minutes}
 						setMinutes={setMinutes}
 						seconds={seconds}

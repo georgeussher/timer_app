@@ -12,6 +12,9 @@ function App() {
 	let [hours, setHours] = useState(0);
 	let [minutes, setMinutes] = useState(0);
 	let [seconds, setSeconds] = useState(0);
+	//can I utilise useReducer?
+
+	//could logic for countdown functionality live here? And be passsed down as props...
 
 	return (
 		<Routes>

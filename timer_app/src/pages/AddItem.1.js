@@ -20,19 +20,30 @@ export default function AddItem({
 	//State for hour values (2), stored in an array:
 	let [hourValuesArray, setHourValuesArray] = useState([]);
 
+	//stores number of times keypad has been clicked
+	let [buttonClickCount, setButtonClickCount] = useState(0);
+
+	//stores the hourValue joined from hourValuesArray
+	let [hourValue, setHourValue] = useState(0);
+
 	//updates itemName state when input field is typed in
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
 	};
 
 	//NEXT STEPS:
-	//track number of number of numberpad button clicks [number of clicks = array.length??]
+	//track number of number of numberpad button clicks ✅
 	//create if statement that checks how many times the buttons have been clicked
-	//if array.lenght === true {function A} else {function B}
+	//if array.length === true {function A} else {function B}
 	//and sets true false value accordingly so that one of two different buttonCLick
 	//functions are called depending on the value of the boolean.
 	//can I create only one funtion for each boolean value that handles hours, minutes
 	//and seconds? Or do I need to create a function for each?
+
+	
+	//if buttonClickCount is odd then isCountOdd is true else false
+	let isCountOdd = buttonClickCount % 2 === 0 ? true : false;
+
 
 	//adds item to items array and clears input field
 	const handleClick = () => {
@@ -40,20 +51,45 @@ export default function AddItem({
 		setItems([...items, itemName]);
 		setItemName('');
 	};
-
+	
 	//logic for when number button is clicked (function A)
 	const handleButtonClick = (event, value) => {
 		event.preventDefault(); //prevents default button behaviour
-		setHours(value); //changes hours value to equal value of button
-		setHourValuesArray([...hourValuesArray, value]); //value is added to the hourValuesArray on click
-		console.log('Hours', value);
+		if (isCountOdd) {
+			addToArray(value);
+			//console.log('odd number')
+		} else {
+			addAndJoinArray(value);
+			//console.log('even number')
+		}
 	};
+	function addToArray(value) {
+		//event.preventDefault(); //prevents default button behaviour
+		setHours(value); //changes hours value to equal value of button
+		setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
+		setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		//console.log('Hours', value);
+	};
+
+	function addAndJoinArray(value) {
+		//event.preventDefault(); //prevents default button behaviour
+		setHours(value); //changes hours value to equal value of button
+		setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
+		setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		//console.log('Hours', value);
+		let finalHourValue = hourValuesArray.join('');
+		setHourValue(finalHourValue);
+		//console.log('hourValue', hourValue);
+	};
+	
 
 	//console logs the hourValuesArray when it is updated to aid debugging and build
 	useEffect(() => {
 		console.log('hourValuesArray', hourValuesArray);
+		//console.log('button count', buttonClickCount);
 		// You can perform further actions or logic with hourValuesArray here
-	}, [hourValuesArray]);
+		console.log('hourValue', hourValue)
+	}, [hourValuesArray, buttonClickCount, hourValue]);
 
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';

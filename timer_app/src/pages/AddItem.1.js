@@ -24,10 +24,8 @@ export default function AddItem({
 	//if button click count = 5&6 > add to secondValuesArray
 
 	//STATE:
-	//State for hour values (2), stored in an array:
-	let [hourValuesArray, setHourValuesArray] = useState([]);
-	//stores number of times keypad has been clicked
-	let [buttonClickCount, setButtonClickCount] = useState(0);
+	let [hourValuesArray, setHourValuesArray] = useState([]);//State for hour values (2), stored in an array:
+	let [buttonClickCount, setButtonClickCount] = useState(0);//stores number of times keypad has been clicked
 
 	//updates itemName state when input field is typed in
 	const handleInputChange = (event) => {

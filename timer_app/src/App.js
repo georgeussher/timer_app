@@ -12,10 +12,8 @@ function App() {
 	let [hours, setHours] = useState(0);
 	let [minutes, setMinutes] = useState(0);
 	let [seconds, setSeconds] = useState(0);
-	//can I utilise useReducer?
+	let [hourValue, setHourValue] = useState();	//stores the hourValue joined from hourValuesArray
 
-	//stores the hourValue joined from hourValuesArray
-	let [hourValue, setHourValue] = useState();
 
 	//could logic for countdown functionality live here? And be passsed down as props...
 

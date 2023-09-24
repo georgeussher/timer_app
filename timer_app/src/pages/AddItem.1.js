@@ -123,7 +123,7 @@ export default function AddItem({
 	return (
 		<>
 			<div>
-				<input type='text' onChange={handleInputChange} />
+				<input id="add-item-input" type='text' onChange={handleInputChange} />
 				{buttons.map(({ title, value: buttonValue }) => {
 					return (
 						<button

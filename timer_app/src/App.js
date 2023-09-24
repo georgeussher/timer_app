@@ -14,13 +14,16 @@ function App() {
 	let [seconds, setSeconds] = useState(0);
 	//can I utilise useReducer?
 
+	//stores the hourValue joined from hourValuesArray
+	let [hourValue, setHourValue] = useState();
+
 	//could logic for countdown functionality live here? And be passsed down as props...
 
 	return (
 		<Routes>
 			<Route
 				path='/'
-				element={<Homepage itemName={itemName} items={items} hours={hours} />}
+				element={<Homepage itemName={itemName} items={items} hours={hours} hourValue={hourValue} />}
 			/>
 			<Route
 				path='/addItem'
@@ -31,6 +34,8 @@ function App() {
 						itemName={itemName}
 						setItemName={setItemName}
 						hours={hours}
+						hourValue={hourValue}
+						setHourValue={setHourValue}
 						setHours={setHours}
 						minute={minutes}
 						setMinutes={setMinutes}

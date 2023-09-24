@@ -7,6 +7,8 @@ export default function AddItem({
 	itemName,
 	setItemName,
 	hours,
+	hourValue,
+	setHourValue,
 	setHours,
 	minutes,
 	setMinutes,
@@ -23,8 +25,6 @@ export default function AddItem({
 	//stores number of times keypad has been clicked
 	let [buttonClickCount, setButtonClickCount] = useState(0);
 
-	//stores the hourValue joined from hourValuesArray
-	let [hourValue, setHourValue] = useState(0);
 
 	//updates itemName state when input field is typed in
 	const handleInputChange = (event) => {
@@ -66,19 +66,25 @@ export default function AddItem({
 	function addToArray(value) {
 		//event.preventDefault(); //prevents default button behaviour
 		setHours(value); //changes hours value to equal value of button
-		setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
-		setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		//setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
+		setHourValuesArray((prevHourValuesArray) => [...prevHourValuesArray, value]); // Use the previous state
+		//setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		setButtonClickCount((prevButtonClickCount) => prevButtonClickCount + 1); // Use the previous state
+
 		//console.log('Hours', value);
 	};
 
 	function addAndJoinArray(value) {
 		//event.preventDefault(); //prevents default button behaviour
 		setHours(value); //changes hours value to equal value of button
-		setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
-		setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		//setHourValuesArray([...hourValuesArray, value]);//value is added to the hourValuesArray on click
+		setHourValuesArray((prevHourValuesArray) => [...prevHourValuesArray, value]); // Use the previous state
+
+		//setButtonClickCount(buttonClickCount + 1);//buttonClickCount is incremented by 1 on click
+		setButtonClickCount((prevButtonClickCount) => prevButtonClickCount + 1); // Use the previous state
+
 		//console.log('Hours', value);
-		let finalHourValue = hourValuesArray.join('');
-		setHourValue(finalHourValue);
+		// setHourValue(hourValuesArray.join(''));
 		//console.log('hourValue', hourValue);
 	};
 	
@@ -89,7 +95,11 @@ export default function AddItem({
 		//console.log('button count', buttonClickCount);
 		// You can perform further actions or logic with hourValuesArray here
 		console.log('hourValue', hourValue)
-	}, [hourValuesArray, buttonClickCount, hourValue]);
+		//console.log('log',hourValuesArray.join(''));
+		setHourValue(hourValuesArray.join(''));
+
+
+	}, [hourValuesArray, buttonClickCount, hourValue, setHourValue]);
 
 	//returns true if input field is empty or only whitespace else false
 	let isEmpty = itemName.trim() === '';
@@ -152,7 +162,7 @@ export default function AddItem({
 						</button>
 					);
 				})}
-				<h2>{hours}</h2>
+				<h2>{hourValue}</h2>
 			</div>
 			<Link to='/' aria-label='adds item and switch to homepage'>
 				<button onClick={handleClick} disabled={isEmpty}>

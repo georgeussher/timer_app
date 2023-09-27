@@ -12,7 +12,7 @@ function App() {
 	let [hours, setHours] = useState(0);
 	let [minutes, setMinutes] = useState(0);
 	let [seconds, setSeconds] = useState(0);
-	let [hourValue, setHourValue] = useState();	//stores the hourValue joined from hourValuesArray
+	let [timeValue, setTimeValue] = useState('');	//stores the hourValue joined from hourValuesArray
 
 
 	//could logic for countdown functionality live here? And be passsed down as props...
@@ -21,7 +21,7 @@ function App() {
 		<Routes>
 			<Route
 				path='/'
-				element={<Homepage itemName={itemName} items={items} hours={hours} hourValue={hourValue} />}
+				element={<Homepage itemName={itemName} items={items} hours={hours} hourValue={timeValue} />}
 			/>
 			<Route
 				path='/addItem'
@@ -32,10 +32,10 @@ function App() {
 						itemName={itemName}
 						setItemName={setItemName}
 						hours={hours}
-						hourValue={hourValue}
-						setHourValue={setHourValue}
+						timeValue={timeValue}
+						setTimeValue={setTimeValue}
 						setHours={setHours}
-						minute={minutes}
+						minutes={minutes}
 						setMinutes={setMinutes}
 						seconds={seconds}
 						setSeconds={setSeconds}

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import Item from '../components/Item';
 
-//checks if the items array has updated
+
+//home page: renders list of items and active countdowns
 export default function Homepage({ itemName, items, hours, hourValue }) {
 	return (
 		<>

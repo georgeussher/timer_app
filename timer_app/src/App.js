@@ -53,6 +53,8 @@ export default function Root() {
 		</BrowserRouter>
 	);
 }
+
+//THE BIGGER PICTURE:
 //next steps: set up react router so when add button is clicked user navigates to add-item page✅
 //add 'Add' button that navigates back to home and renders Item component as a list✅
 //add timer functionality to Item component (in progress)

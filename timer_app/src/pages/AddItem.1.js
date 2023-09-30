@@ -21,11 +21,18 @@ export default function AddItem({
 	//if button click count = 0-2 > add to hourValuesArray✅
 	//if button click count = 3&4 > add to minuteValuesArray✅
 	//if button click count = 5&6 > add to secondValuesArray✅
+	//push time data to array of objects when add button clicked
+		//declare array of objects as state in the app
+	//map through object and pass each item into Countdown component
+	//render countdowns as list in homePage.js
+	//move hourValue state down to AddItem component level
 	//reset hourValue when '+' button clicked (or when item is added)
+	//disable numbers on keypad depending on wether hours mins or secs are being set
 
 	// STATE:
 	const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
+
 
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {
@@ -48,6 +55,7 @@ export default function AddItem({
 		}
 	};
 
+
 	// updates timeValue to reflect updated hours minutes and seconds
 	useEffect(() => {
 		setTimeValue(
@@ -67,6 +75,18 @@ export default function AddItem({
 	const handleClick = () => {
 		setItems([...items, itemName]);
 		setItemName('');
+		//push time Value to an object 
+		//let countdownData = [
+			//{
+				//text: 'pasta'
+				//hours: 01,
+				//minutes: 32,
+				//seconds: 00
+			//},
+		//];
+		console.log('timeValue', timeValue)
+		console.log('numberValues', numberValues)
+		//reset state to default values(00:00:00)
 	};
 
 	// Returns true if the input field is empty or only whitespace else false

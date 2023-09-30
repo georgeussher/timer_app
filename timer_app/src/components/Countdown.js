@@ -2,13 +2,13 @@
 
 //PLAN: save time as state variable to be changed in the add-item component
 
-export default function Countdown({ hourValue }){
+export default function Countdown({ timeValue }){
 
     //COUNTDOWN LOGIC HERE
 
     return (
         <div>
-            <h2>{hourValue}</h2>
+            <h2>{timeValue}</h2>
         </div>
     )
 };

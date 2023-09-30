@@ -21,7 +21,7 @@ function App() {
 		<Routes>
 			<Route
 				path='/'
-				element={<Homepage itemName={itemName} items={items} hours={hours} hourValue={timeValue} />}
+				element={<Homepage itemName={itemName} items={items} hours={hours} timeValue={timeValue} />}
 			/>
 			<Route
 				path='/addItem'

@@ -7,7 +7,8 @@ import AddItem from './pages/AddItem.1';
 function App() {
 	//STATE:
 	let [itemName, setItemName] = useState('');
-	let [items, setItems] = useState([]);
+	let [items, setItems] = useState([]);//delete and replace with itemsArray
+	let [itemsArray, setItemsArray] = useState([]); //array of objects
 	//Countdown state:
 	let [hours, setHours] = useState(0);
 	let [minutes, setMinutes] = useState(0);
@@ -27,6 +28,8 @@ function App() {
 				path='/addItem'
 				element={
 					<AddItem
+						itemsArray={itemsArray}
+						setItemsArray={setItemsArray}
 						items={items}
 						setItems={setItems}
 						itemName={itemName}

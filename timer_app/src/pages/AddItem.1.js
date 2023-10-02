@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function AddItem({
+	itemsArray,
+	setItemsArray,
 	items,
 	setItems,
 	itemName,
@@ -33,7 +35,6 @@ export default function AddItem({
 	const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
 
-
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {
 		setNumberValues([...numberValues, value]); // Add the clicked number to the array
@@ -57,20 +58,12 @@ export default function AddItem({
 
 
 	// updates timeValue to reflect updated hours minutes and seconds
-	useEffect(() => {
-		setTimeValue(
-			`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
-				2,
-				'0'
-			)}:${String(seconds).padStart(2, '0')}`
-		);
-	}, [hours, minutes, seconds, setTimeValue]);
-
+	
 	// Updates itemName state when input field is typed in
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
 	};
-
+	
 	// Adds item to items array and clears input field
 	const handleClick = () => {
 		setItems([...items, itemName]);
@@ -82,15 +75,38 @@ export default function AddItem({
 				//hours: 01,
 				//minutes: 32,
 				//seconds: 00
-			//},
-		//];
-		console.log('timeValue', timeValue)
-		console.log('numberValues', numberValues)
-		//reset state to default values(00:00:00)
-	};
+				//},
+				//];
+				let userData = {//need to test to ensure that app is able to access latest values
+					text: itemName,
+					hours: hours,
+					minutes: minutes,
+					seconds: seconds,
+				};
+				
+				
+				setItemsArray([...itemsArray, userData])
+				
+				
+				//console.log('timeValue', timeValue)
+				//console.log('numberValues', numberValues)
+				//console.log('itemsArray', itemsArray)
+				//reset state to default values(00:00:00)
+				//console.log('items', items)
+			};
+			
+			useEffect(() => {
 
-	// Returns true if the input field is empty or only whitespace else false
-	const isEmpty = itemName.trim() === '';
+				setTimeValue(
+					`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
+						2,
+						'0'
+					)}:${String(seconds).padStart(2, '0')}`
+				);
+			}, [hours, minutes, seconds, setTimeValue]);
+			
+			// Returns true if the input field is empty or only whitespace else false
+			const isEmpty = itemName.trim() === '';
 
 	// Array to store button titles and values to be mapped through and rendered
 	const buttons = [
@@ -159,4 +175,4 @@ export default function AddItem({
 			</Link>
 		</>
 	);
-}
+	}

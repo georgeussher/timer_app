@@ -26,6 +26,7 @@ export default function AddItem({
 	//map through object and pass each item into Countdown component✅
 	//render countdowns as list in homePage.js✅
 	//move timeValue state down to AddItem component level
+	//add padStart logic to countdown lists so values are always 2 digits
 	//reset timeValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
 	//countdown logic to take in hours, minuted and seconds
@@ -59,39 +60,39 @@ export default function AddItem({
 	};
 
 	// Adds item to items array and clears input field
-	const handleClick = () => {
-		setItemName('');
-
-		//create object to store item data
-		let userData = {
-			id: uuid(),
-			name: itemName,
-			hours: hours,
-			minutes: minutes,
-			seconds: seconds,
-		};
-
-		setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
-		console.log('itemsArray', itemsArray);
-	};
-
+	
 	//troubleshooting:
 	useEffect(() => {
 		console.log('itemsArray', itemsArray);
 	}, [itemsArray]);
-
+	
 	//converts time data into two digit time format when state changes
 	useEffect(() => {
 		setTimeValue(
 			`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
 				2,
 				'0'
-			)}:${String(seconds).padStart(2, '0')}`
-		);
-	}, [hours, minutes, seconds, setTimeValue]);
+				)}:${String(seconds).padStart(2, '0')}`
+				);
+			}, [hours, minutes, seconds, setTimeValue]);
 
-	// Returns true if the input field is empty or only whitespace else false
-	const isEmpty = itemName.trim() === '';
+			const handleClick = () => {
+				setItemName('');
+		
+				//create object to store item data
+				let userData = {
+					id: uuid(),
+					name: itemName,
+					hours: hours,
+					minutes: minutes,
+					seconds: seconds,
+				};
+		
+				setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
+				console.log('itemsArray', itemsArray);
+			};
+			// Returns true if the input field is empty or only whitespace else false
+			const isEmpty = itemName.trim() === '';
 
 	// Array to store button titles and values to be mapped through and rendered
 	const buttons = [

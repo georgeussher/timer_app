@@ -60,39 +60,39 @@ export default function AddItem({
 	};
 
 	// Adds item to items array and clears input field
-	
+
 	//troubleshooting:
 	useEffect(() => {
 		console.log('itemsArray', itemsArray);
 	}, [itemsArray]);
-	
+
 	//converts time data into two digit time format when state changes
 	useEffect(() => {
 		setTimeValue(
 			`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
 				2,
 				'0'
-				)}:${String(seconds).padStart(2, '0')}`
-				);
-			}, [hours, minutes, seconds, setTimeValue]);
+			)}:${String(seconds).padStart(2, '0')}`
+		);
+	}, [hours, minutes, seconds, setTimeValue]);
 
-			const handleClick = () => {
-				setItemName('');
-		
-				//create object to store item data
-				let userData = {
-					id: uuid(),
-					name: itemName,
-					hours: hours,
-					minutes: minutes,
-					seconds: seconds,
-				};
-		
-				setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
-				console.log('itemsArray', itemsArray);
-			};
-			// Returns true if the input field is empty or only whitespace else false
-			const isEmpty = itemName.trim() === '';
+	const handleClick = () => {
+		setItemName('');
+
+		//create object to store item data
+		let userData = {
+			id: uuid(),
+			name: itemName,
+			hours: hours,
+			minutes: minutes,
+			seconds: seconds,
+		};
+
+		setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
+		console.log('itemsArray', itemsArray);
+	};
+	// Returns true if the input field is empty or only whitespace else false
+	const isEmpty = itemName.trim() === '';
 
 	// Array to store button titles and values to be mapped through and rendered
 	const buttons = [

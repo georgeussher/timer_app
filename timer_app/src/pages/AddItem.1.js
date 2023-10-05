@@ -30,6 +30,7 @@ export default function AddItem({
 	//move hourValue state down to AddItem component level
 	//reset hourValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
+	
 	// STATE:
 	const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
@@ -55,7 +56,6 @@ export default function AddItem({
 		}
 	};
 
-	// updates timeValue to reflect updated hours minutes and seconds
 
 	// Updates itemName state when input field is typed in
 	const handleInputChange = (event) => {
@@ -66,18 +66,10 @@ export default function AddItem({
 	const handleClick = () => {
 		setItems([...items, itemName]);
 		setItemName('');
-		//push time Value to an object
-		//let countdownData = [
-		//{
-		//text: 'pasta'
-		//hours: 01,
-		//minutes: 32,
-		//seconds: 00
-		//},
-		//];
+
+		//create object to store item data
 		let userData = {
 			id: uuid(),
-			//need to test to ensure that app is able to access latest values
 			name: itemName,
 			hours: hours,
 			minutes: minutes,
@@ -85,20 +77,16 @@ export default function AddItem({
 		};
 
 		//setItemsArray([...itemsArray, userData]);
-		setItemsArray(prevItemsArray => [...prevItemsArray, userData]);
+		setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
 		console.log('itemsArray', itemsArray);
-
-
-		//console.log('timeValue', timeValue)
-		//console.log('numberValues', numberValues)
-		//reset state to default values(00:00:00)
-		//console.log('items', items)
 	};
 
+	//troubleshooting:
 	useEffect(() => {
 		console.log('itemsArray', itemsArray);
 	}, [itemsArray]);
-	
+
+	//converts time data into two digit time format when state changes
 	useEffect(() => {
 		setTimeValue(
 			`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
@@ -107,7 +95,6 @@ export default function AddItem({
 			)}:${String(seconds).padStart(2, '0')}`
 		);
 	}, [hours, minutes, seconds, setTimeValue]);
-
 
 	// Returns true if the input field is empty or only whitespace else false
 	const isEmpty = itemName.trim() === '';
@@ -176,9 +163,7 @@ export default function AddItem({
 				'Tick'
 			</button>
 			<Link to='/' aria-label='adds item and switches to homepage'>
-				<button>
-					Done
-				</button>
+				<button>Done</button>
 			</Link>
 		</>
 	);

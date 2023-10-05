@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react';
 export default function AddItem({
 	itemsArray,
 	setItemsArray,
-	//items,
-	//setItems,
 	itemName,
 	setItemName,
 	hours,
@@ -27,17 +25,15 @@ export default function AddItem({
 	//declare array of objects as state in the app✅
 	//map through object and pass each item into Countdown component✅
 	//render countdowns as list in homePage.js✅
-	//move hourValue state down to AddItem component level
-	//reset hourValue when '+' button clicked (or when item is added)
+	//move timeValue state down to AddItem component level
+	//reset timeValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
 
 	// STATE:
-	//const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
 
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {
-		//setNumberValues([...numberValues, value]); // Add the clicked number to the array
 		setButtonClickCount(buttonClickCount + 1); // Increment the button click count
 
 		// Logic to set hours, minutes, and seconds based on button click count
@@ -55,7 +51,6 @@ export default function AddItem({
 			setSeconds((prevSeconds) => prevSeconds * 10 + value); // Append the value to seconds
 		}
 	};
-
 
 	// Updates itemName state when input field is typed in
 	const handleInputChange = (event) => {

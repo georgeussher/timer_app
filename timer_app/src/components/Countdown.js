@@ -2,16 +2,17 @@
 
 //PLAN: save time as state variable to be changed in the add-item component
 
-export default function Countdown({ hours, minutes, seconds }){
+export default function Countdown({ hours, minutes, seconds }) {
+	//COUNTDOWN LOGIC HERE
 
-    //COUNTDOWN LOGIC HERE
-
-    return (
-        <div>
-            <h2>{hours}:{minutes}:{seconds}</h2>
-        </div>
-    )
-};
+	return (
+		<div>
+			<h2>
+				{hours}:{minutes}:{seconds}
+			</h2>
+		</div>
+	);
+}
 
 //add logic to count down from a set value
 //render live countdown in return statement

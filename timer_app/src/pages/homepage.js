@@ -14,16 +14,16 @@ export default function Homepage({ itemsArray }) {
 				{/* array of items is mapped into Item component and rendered */}
 				{itemsArray.map((userData) => (
 					//map through the countdown object and pass in each value as a prop to the Countdown component
-						<li key={userData.id}>
-							{
-								<Item
-									itemName={userData.name}
-									hours={userData.hours}
-									minutes={userData.minutes}
-									seconds={userData.seconds}
-								/>
-							}
-						</li>
+					<li key={userData.id}>
+						{
+							<Item
+								itemName={userData.name}
+								hours={userData.hours}
+								minutes={userData.minutes}
+								seconds={userData.seconds}
+							/>
+						}
+					</li>
 				))}
 			</ul>
 		</>

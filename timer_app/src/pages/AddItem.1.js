@@ -17,20 +17,18 @@ export default function AddItem({
 	seconds,
 	setSeconds,
 }) {
-
 	//NEXT STEPS:
 	//logic in function A&B to choose which time value state to change (hours, minutes or seconds)✅
 	//if button click count = 0-2 > add to hourValuesArray✅
 	//if button click count = 3&4 > add to minuteValuesArray✅
 	//if button click count = 5&6 > add to secondValuesArray✅
 	//push time data to array of objects when add button clicked
-		//declare array of objects as state in the app
+	//declare array of objects as state in the app
 	//map through object and pass each item into Countdown component
 	//render countdowns as list in homePage.js
 	//move hourValue state down to AddItem component level
 	//reset hourValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
-
 	// STATE:
 	const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
@@ -56,57 +54,61 @@ export default function AddItem({
 		}
 	};
 
-
 	// updates timeValue to reflect updated hours minutes and seconds
-	
+
 	// Updates itemName state when input field is typed in
 	const handleInputChange = (event) => {
 		setItemName(event.target.value);
 	};
-	
+
 	// Adds item to items array and clears input field
 	const handleClick = () => {
 		setItems([...items, itemName]);
 		setItemName('');
-		//push time Value to an object 
+		//push time Value to an object
 		//let countdownData = [
-			//{
-				//text: 'pasta'
-				//hours: 01,
-				//minutes: 32,
-				//seconds: 00
-				//},
-				//];
-				let userData = {//need to test to ensure that app is able to access latest values
-					text: itemName,
-					hours: hours,
-					minutes: minutes,
-					seconds: seconds,
-				};
-				
-				
-				setItemsArray([...itemsArray, userData])
-				
-				
-				//console.log('timeValue', timeValue)
-				//console.log('numberValues', numberValues)
-				//console.log('itemsArray', itemsArray)
-				//reset state to default values(00:00:00)
-				//console.log('items', items)
-			};
-			
-			useEffect(() => {
+		//{
+		//text: 'pasta'
+		//hours: 01,
+		//minutes: 32,
+		//seconds: 00
+		//},
+		//];
+		let userData = {
+			//need to test to ensure that app is able to access latest values
+			text: itemName,
+			hours: hours,
+			minutes: minutes,
+			seconds: seconds,
+		};
 
-				setTimeValue(
-					`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
-						2,
-						'0'
-					)}:${String(seconds).padStart(2, '0')}`
-				);
-			}, [hours, minutes, seconds, setTimeValue]);
-			
-			// Returns true if the input field is empty or only whitespace else false
-			const isEmpty = itemName.trim() === '';
+		//setItemsArray([...itemsArray, userData]);
+		setItemsArray(prevItemsArray => [...prevItemsArray, userData]);
+		console.log('itemsArray', itemsArray);
+
+
+		//console.log('timeValue', timeValue)
+		//console.log('numberValues', numberValues)
+		//reset state to default values(00:00:00)
+		//console.log('items', items)
+	};
+
+	useEffect(() => {
+		console.log('itemsArray', itemsArray);
+	}, [itemsArray]);
+	
+	useEffect(() => {
+		setTimeValue(
+			`${String(hours).padStart(2, '0')}:${String(minutes).padStart(
+				2,
+				'0'
+			)}:${String(seconds).padStart(2, '0')}`
+		);
+	}, [hours, minutes, seconds, setTimeValue]);
+
+
+	// Returns true if the input field is empty or only whitespace else false
+	const isEmpty = itemName.trim() === '';
 
 	// Array to store button titles and values to be mapped through and rendered
 	const buttons = [
@@ -168,11 +170,14 @@ export default function AddItem({
 				})}
 				<h2>{timeValue}</h2>
 			</div>
+			<button onClick={handleClick} disabled={isEmpty}>
+				'Tick'
+			</button>
 			<Link to='/' aria-label='adds item and switches to homepage'>
-				<button onClick={handleClick} disabled={isEmpty}>
-					Add
+				<button>
+					Done
 				</button>
 			</Link>
 		</>
 	);
-	}
+}

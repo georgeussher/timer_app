@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import uuid from 'react-uuid';
 import { useState, useEffect } from 'react';
 
 export default function AddItem({
@@ -75,6 +76,7 @@ export default function AddItem({
 		//},
 		//];
 		let userData = {
+			id: uuid(),
 			//need to test to ensure that app is able to access latest values
 			name: itemName,
 			hours: hours,

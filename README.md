@@ -6,4 +6,4 @@ This project will be deployed once finished. For now, to view the project clone 
 
 💻Tech-stack: 
 - React
-- Jest
+- Jest for unit-testing

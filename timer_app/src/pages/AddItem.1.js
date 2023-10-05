@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 export default function AddItem({
 	itemsArray,
 	setItemsArray,
-	items,
-	setItems,
+	//items,
+	//setItems,
 	itemName,
 	setItemName,
 	hours,
@@ -23,21 +23,21 @@ export default function AddItem({
 	//if button click count = 0-2 > add to hourValuesArray✅
 	//if button click count = 3&4 > add to minuteValuesArray✅
 	//if button click count = 5&6 > add to secondValuesArray✅
-	//push time data to array of objects when add button clicked
-	//declare array of objects as state in the app
-	//map through object and pass each item into Countdown component
-	//render countdowns as list in homePage.js
+	//push time data to array of objects when add button clicked✅
+	//declare array of objects as state in the app✅
+	//map through object and pass each item into Countdown component✅
+	//render countdowns as list in homePage.js✅
 	//move hourValue state down to AddItem component level
 	//reset hourValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
-	
+
 	// STATE:
-	const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
+	//const [numberValues, setNumberValues] = useState([]); // Array to store entered number values
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
 
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {
-		setNumberValues([...numberValues, value]); // Add the clicked number to the array
+		//setNumberValues([...numberValues, value]); // Add the clicked number to the array
 		setButtonClickCount(buttonClickCount + 1); // Increment the button click count
 
 		// Logic to set hours, minutes, and seconds based on button click count
@@ -64,7 +64,6 @@ export default function AddItem({
 
 	// Adds item to items array and clears input field
 	const handleClick = () => {
-		setItems([...items, itemName]);
 		setItemName('');
 
 		//create object to store item data
@@ -76,7 +75,6 @@ export default function AddItem({
 			seconds: seconds,
 		};
 
-		//setItemsArray([...itemsArray, userData]);
 		setItemsArray((prevItemsArray) => [...prevItemsArray, userData]);
 		console.log('itemsArray', itemsArray);
 	};

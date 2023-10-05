@@ -28,6 +28,7 @@ export default function AddItem({
 	//move timeValue state down to AddItem component level
 	//reset timeValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
+	//countdown logic to take in hours, minuted and seconds
 
 	// STATE:
 	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks

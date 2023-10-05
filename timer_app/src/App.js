@@ -19,10 +19,11 @@ function App() {
 	//could logic for countdown functionality live here? And be passsed down as props...
 
 	return (
+		
 		<Routes>
 			<Route
 				path='/'
-				element={<Homepage itemName={itemName} items={items} hours={hours} timeValue={timeValue} />}
+				element={<Homepage itemName={itemName} items={items} hours={hours} timeValue={timeValue} itemsArray={itemsArray} />}
 			/>
 			<Route
 				path='/addItem'

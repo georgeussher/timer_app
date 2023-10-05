@@ -76,7 +76,7 @@ export default function AddItem({
 		//];
 		let userData = {
 			//need to test to ensure that app is able to access latest values
-			text: itemName,
+			name: itemName,
 			hours: hours,
 			minutes: minutes,
 			seconds: seconds,

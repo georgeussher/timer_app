@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+//uuid creates unique id's for each item, consider updating to v4?
 import uuid from 'react-uuid';
 import { useState, useEffect } from 'react';
 

@@ -4,7 +4,7 @@
 
 export default function Countdown({ hours, minutes, seconds }) {
 	//COUNTDOWN LOGIC HERE
-
+	//on routing to homepage, timer function called, taking in hours, minutes and seconds as arguments
 	return (
 		<div>
 			<h2>

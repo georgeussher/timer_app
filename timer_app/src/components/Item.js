@@ -1,7 +1,7 @@
 import Countdown from './Countdown';
 
 export default function Item({ itemName, hours, minutes, seconds }) {
-	//props: itemName, countdown
+	//props: itemName, hours, minutes, seconds
 	// renders itemName and countdown in list format
 	return (
 		<div>

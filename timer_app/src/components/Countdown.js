@@ -1,5 +1,4 @@
 //Countdown timer logic rendered inside Item component
-import setInterval from 'react'
 //PLAN: save time as state variable to be changed in the add-item component
 
 export default function Countdown({ hours, minutes, seconds }) {
@@ -13,7 +12,7 @@ export default function Countdown({ hours, minutes, seconds }) {
 		//convert hours, minutes and seconds into milliseconds and combine into one number
 		const durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
 		const targetDate = new Date(currentDate.getTime() + durationInMilliseconds)
-
+	console.log(targetDate)
 	
 
 

@@ -8,7 +8,11 @@ export default function Countdown({ hours, minutes, seconds }) {
 	return (
 		<div>
 			<h2>
-				{hours}:{minutes}:{seconds}
+			{/* rendering the live dynamic countdown after converting to a string */}
+				{String(hours).padStart(2, '0')}:{String(minutes).padStart(
+				2,
+				'0'
+			)}:{String(seconds).padStart(2, '0')}
 			</h2>
 		</div>
 	);

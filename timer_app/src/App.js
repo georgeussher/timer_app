@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/homepage';
-import AddItem from './pages/AddItem.1';
+import AddItem from './pages/AddItem';
 
 function App() {
 	//STATE:
@@ -12,7 +12,6 @@ function App() {
 	let [hours, setHours] = useState(0);
 	let [minutes, setMinutes] = useState(0);
 	let [seconds, setSeconds] = useState(0);
-	let [timeValue, setTimeValue] = useState(''); //stores the hourValue joined from hourValuesArray
 
 	//could logic for countdown functionality live here? And be passsed down as props...
 
@@ -27,8 +26,6 @@ function App() {
 						setItemsArray={setItemsArray}
 						itemName={itemName}
 						setItemName={setItemName}
-						timeValue={timeValue}
-						setTimeValue={setTimeValue}
 						hours={hours}
 						setHours={setHours}
 						minutes={minutes}

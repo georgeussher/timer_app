@@ -9,8 +9,6 @@ export default function AddItem({
 	itemName,
 	setItemName,
 	hours,
-	timeValue,
-	setTimeValue,
 	setHours,
 	minutes,
 	setMinutes,
@@ -26,14 +24,15 @@ export default function AddItem({
 	//declare array of objects as state in the app✅
 	//map through object and pass each item into Countdown component✅
 	//render countdowns as list in homePage.js✅
-	//move timeValue state down to AddItem component level
+	//move timeValue state down to AddItem component level✅
 	//add padStart logic to countdown lists so values are always 2 digits
 	//reset timeValue when '+' button clicked (or when item is added)
 	//disable numbers on keypad depending on wether hours mins or secs are being set
 	//countdown logic to take in hours, minuted and seconds
 
 	// STATE:
-	const [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
+	let [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
+	let [timeValue, setTimeValue] = useState(''); //stores the hourValue
 
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {

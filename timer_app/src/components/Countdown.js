@@ -1,5 +1,7 @@
+//import { useState, useEffect } from 'react';
 //Countdown timer logic rendered inside Item component
 //PLAN: save time as state variable to be changed in the add-item component
+
 
 export default function Countdown({ hours, minutes, seconds }) {
 	//convert hours, minutes and seconds from string to integer
@@ -8,12 +10,16 @@ export default function Countdown({ hours, minutes, seconds }) {
 	const convertedSeconds = parseInt(seconds, 10);
 
 	//COUNTDOWN LOGIC HERE
-		const currentDate = new Date();
-		//convert hours, minutes and seconds into milliseconds and combine into one number
-		const durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
-		const targetDate = new Date(currentDate.getTime() + durationInMilliseconds)
+	const currentDate = new Date();
+	//convert hours, minutes and seconds into milliseconds and combine into one number
+	const durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
+	const targetDate = new Date(currentDate.getTime() + durationInMilliseconds)
 	console.log(targetDate)
+
+	//declare durationInMilliseconds as state value
 	
+		
+			
 
 
 	//on routing to homepage, timer function called, taking in hours, minutes and seconds as arguments

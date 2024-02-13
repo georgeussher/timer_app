@@ -10,20 +10,29 @@ export default function Countdown({ hours, minutes, seconds }) {
 	const convertedSeconds = parseInt(seconds, 10);
 
 	//COUNTDOWN LOGIC HERE
-	
+
+		//converts hours, mins, secs from user input into milliseconds
 		var durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
 		
 		setInterval(() => {
 			
+			//calculates hours mins and secs from milliseconds
 			const updatedHours = Math.floor(durationInMilliseconds / (1000 * 60 * 60));
 			const updatedMinutes = Math.floor((durationInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
 			const updatedSeconds = Math.floor((durationInMilliseconds % (1000 * 60)) / 1000);
-	
+			
+			//decrements by 1 seconds
 			durationInMilliseconds -= 1000;
-	
+			
+			//countdown in console
 			console.log(updatedHours, ":", updatedMinutes, ":", updatedSeconds)
 	
 		}, 1000);
+
+
+		//NEXT STEPS:
+		//render countdown in list
+		//delete option for list and number input
 
 	
 	//const currentDate = new Date();

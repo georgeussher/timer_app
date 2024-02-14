@@ -43,3 +43,6 @@ export default function Countdown({ hours, minutes, seconds }) {
     </div>
   );
 }
+
+
+//next steps, render list so timers do not restart when new item added

@@ -14,21 +14,26 @@ export default function Countdown({ hours, minutes, seconds }) {
     let durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
 
     const intervalId = setInterval(() => {
-      // calculates hours, mins, and secs from milliseconds
-      const countdownHours = Math.floor(durationInMilliseconds / (1000 * 60 * 60));
-      const countdownMinutes = Math.floor((durationInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
-      const countdownSeconds = Math.floor((durationInMilliseconds % (1000 * 60)) / 1000);
+		if (durationInMilliseconds >= 0){
 
-      setUpdatedHours(countdownHours);
-      setUpdatedMinutes(countdownMinutes);
-      setUpdatedSeconds(countdownSeconds);
+		
+      		// calculates hours, mins, and secs from milliseconds
+      		const countdownHours = Math.floor(durationInMilliseconds / (1000 * 60 * 60));
+      		const countdownMinutes = Math.floor((durationInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+      		const countdownSeconds = Math.floor((durationInMilliseconds % (1000 * 60)) / 1000);
 
-      // decrements by 1 second
-      durationInMilliseconds -= 1000;
+      		setUpdatedHours(countdownHours);
+      		setUpdatedMinutes(countdownMinutes);
+      		setUpdatedSeconds(countdownSeconds);
 
-      // countdown in console
-      console.log(countdownHours, ":", countdownMinutes, ":", countdownSeconds);
-    }, 1000);
+      		// decrements by 1 second
+      		durationInMilliseconds -= 1000;
+
+      		// countdown in console
+      		console.log(countdownHours, ":", countdownMinutes, ":", countdownSeconds);
+		};
+	}, 1000);
+		
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+//implement useContext into application so that countdowns continue in background
+//when not on page
+
 export default function Countdown({ hours, minutes, seconds }) {
   const convertedHours = parseInt(hours, 10);
   const convertedMinutes = parseInt(minutes, 10);

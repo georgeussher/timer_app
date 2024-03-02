@@ -5,13 +5,15 @@ export default function Countdown({ hours, minutes, seconds }) {
   const convertedMinutes = parseInt(minutes, 10);
   const convertedSeconds = parseInt(seconds, 10);
 
+  const [durationInMilliseconds, setDurationInMilliseconds] = useState((convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000);
+
   const [updatedHours, setUpdatedHours] = useState(convertedHours);
   const [updatedMinutes, setUpdatedMinutes] = useState(convertedMinutes);
   const [updatedSeconds, setUpdatedSeconds] = useState(convertedSeconds);
 
   useEffect(() => {
     // converts hours, mins, secs from user input into milliseconds
-    let durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
+    //let durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;
 
     const intervalId = setInterval(() => {
 		if (durationInMilliseconds >= 0){
@@ -27,7 +29,8 @@ export default function Countdown({ hours, minutes, seconds }) {
       		setUpdatedSeconds(countdownSeconds);
 
       		// decrements by 1 second
-      		durationInMilliseconds -= 1000;
+      		//durationInMilliseconds -= 1000;
+          setDurationInMilliseconds(prevDuration => prevDuration - 1000);
 
       		// countdown in console
       		console.log(countdownHours, ":", countdownMinutes, ":", countdownSeconds);
@@ -37,7 +40,7 @@ export default function Countdown({ hours, minutes, seconds }) {
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, [convertedHours, convertedMinutes, convertedSeconds]);
+  }, [durationInMilliseconds]);
 
   return (
     <div>

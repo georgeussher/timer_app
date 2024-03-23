@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useCountdown } from './CountdownContext';
 
 //implement useContext into application so that countdowns continue in background
 //when not on page
@@ -44,6 +45,8 @@ export default function Countdown({ hours, minutes, seconds }) {
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, [durationInMilliseconds]);
+
+  ;
 
   return (
     <div>

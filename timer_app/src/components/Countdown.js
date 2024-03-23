@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useCountdown } from './CountdownContext';
 
 //implement useContext into application so that countdowns continue in background
 //when not on page

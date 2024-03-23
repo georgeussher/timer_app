@@ -32,7 +32,7 @@ export default function AddItem({
 
 	// STATE:
 	let [buttonClickCount, setButtonClickCount] = useState(0); // Count of button clicks
-	let [timeValue, setTimeValue] = useState(''); //stores the hourValue
+	let [timeValue, setTimeValue] = useState(''); //represents hours minutes and seconds in a consistent format
 
 	// keypad button click handler
 	const handleNumberButtonClick = (value) => {
@@ -154,10 +154,10 @@ export default function AddItem({
 				})}
 				<h2>{timeValue}</h2>
 			</div>
-			<button onClick={handleClick} disabled={isEmpty}>
+			<button aria-label='adds itemName to userData object' onClick={handleClick} disabled={isEmpty}>
 				'Tick'
 			</button>
-			<Link to='/' aria-label='adds item and switches to homepage'>
+			<Link to='/' aria-label='switches to homepage'>
 				<button>Done</button>
 			</Link>
 		</>

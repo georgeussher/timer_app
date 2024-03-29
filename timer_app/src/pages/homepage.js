@@ -5,9 +5,11 @@ import Item from '../components/Item';
 //home page: renders list of items and active countdowns
 export default function Homepage({ itemsArray }) {
 
+	//retrieves updatedseconds from storage and logs to console
 	useEffect(() => {
-		
-	})
+		const storedTimers = JSON.parse(localStorage.getItem('updatedSeconds'))
+		console.log('storedTimers',storedTimers)
+	}, [])
 
 	console.log('itemsArray in homepage', itemsArray);
 	return (

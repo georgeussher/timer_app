@@ -40,12 +40,20 @@ export default function Countdown({ hours, minutes, seconds }) {
       		console.log(countdownHours, ":", countdownMinutes, ":", countdownSeconds);
 		};
 	}, 1000);
+
+  
 		
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, [durationInMilliseconds]);
 
+  useEffect(() => {
+    // Update storage when timers change
+    localStorage.setItem('updatedHours', JSON.stringify(updatedHours));
+    localStorage.setItem('updatedminutes', JSON.stringify(updatedMinutes));
+    localStorage.setItem('updatedSeconds', JSON.stringify(updatedSeconds));
+  }, [updatedHours, updatedMinutes, updatedSeconds]);
   ;
 
   return (

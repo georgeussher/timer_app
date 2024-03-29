@@ -6,7 +6,17 @@ export default function Item({ itemName, hours, minutes, seconds }) {
 	return (
 		<div>
 			<h1>{itemName}</h1>
-			<Countdown hours={hours} minutes={minutes} seconds={seconds} />
+			<Countdown 
+				hours={hours} 
+				minutes={minutes} 
+				seconds={seconds}
+				// updateHours={updatedHours}
+				// setUpdatedHours={setUpdatedHours} 
+				// updatedMinutes={updatedMinutes}
+				// setUpdatedMinutes={setUpdatedMinutes}
+				// updatedSeconds={updatedSeconds}
+				// setUpdatedSeconds={setUpdatedSeconds}
+			/>
 		</div>
 	);
 }

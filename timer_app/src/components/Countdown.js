@@ -14,6 +14,7 @@ export default function Countdown({ hours, minutes, seconds }) {
   const [updatedMinutes, setUpdatedMinutes] = useState(convertedMinutes);
   const [updatedSeconds, setUpdatedSeconds] = useState(convertedSeconds);
 
+
   useEffect(() => {
     // converts hours, mins, secs from user input into milliseconds
     //let durationInMilliseconds = (convertedHours * 3600 + convertedMinutes * 60 + convertedSeconds) * 1000;

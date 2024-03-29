@@ -13,11 +13,32 @@ function App() {
 	let [minutes, setMinutes] = useState(0);
 	let [seconds, setSeconds] = useState(0);
 
+	// const convertedHours = parseInt(hours, 10);
+  	// const convertedMinutes = parseInt(minutes, 10);
+  	// const convertedSeconds = parseInt(seconds, 10);
+
+	//active countdown state
+	// const [updatedHours, setUpdatedHours] = useState(0);
+  	// const [updatedMinutes, setUpdatedMinutes] = useState(0);
+  	// const [updatedSeconds, setUpdatedSeconds] = useState(0);
+
 	//could logic for countdown functionality live here? And be passsed down as props...
 
 	return (
 		<Routes>
-			<Route path='/' element={<Homepage itemsArray={itemsArray} />} />
+			<Route path='/' 
+				element={
+					<Homepage 
+						itemsArray={itemsArray} 
+						// updateHours={updatedHours}
+						// setUpdatedHours={setUpdatedHours} 
+						// updatedMinutes={updatedMinutes}
+						// setUpdatedMinutes={setUpdatedMinutes}
+						// updatedSeconds={updatedSeconds}
+						// setUpdatedSeconds={setUpdatedSeconds}
+					/>
+				}
+			/>
 			<Route
 				path='/addItem'
 				element={

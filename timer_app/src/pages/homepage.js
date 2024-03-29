@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import React, {  useEffect } from 'react';
 import Item from '../components/Item';
 
 //home page: renders list of items and active countdowns
 export default function Homepage({ itemsArray }) {
+
+	useEffect(() => {
+		
+	})
+
 	console.log('itemsArray in homepage', itemsArray);
 	return (
 		<>
@@ -21,6 +27,12 @@ export default function Homepage({ itemsArray }) {
 								hours={userData.hours}
 								minutes={userData.minutes}
 								seconds={userData.seconds}
+								// updateHours={updatedHours}
+								// setUpdatedHours={setUpdatedHours} 
+								// updatedMinutes={updatedMinutes}
+								// setUpdatedMinutes={setUpdatedMinutes}
+								// updatedSeconds={updatedSeconds}
+								// setUpdatedSeconds={setUpdatedSeconds}
 							/>
 						}
 					</li>
